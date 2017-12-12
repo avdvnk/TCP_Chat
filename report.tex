@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage[14pt]{extsizes} 
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage[left=2.5cm, right=1.5cm, vmargin=2.5cm]{geometry}
+
+\begin{document}
+
+  \begin{center}
+	   ГУАП\\
+	   КАФЕДРА № 51
+  \end{center}
+  \begin{center}
+\begin{tabular}{clcll}
+& & & & \\
+\multicolumn{1}{l}{ПРЕПОДАВАТЕЛЬ} & \multicolumn{1}{c}{} & & & \\ \cline{1-3}
+\multicolumn{1}{|c|}{доцент, к.т.н.} & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Линский Е.М.} & & \\ \cline{1-3}
+\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}должность , уч. степень,\\ звание\end{tabular}} & \multicolumn{1}{c|}{подпись, дата} & \multicolumn{1}{c|}{инициалы, фамилия} &  &  \\ \cline{1-3}
+\end{tabular}
+\end{center}
+
+\vspace{5cm}
+
+  \begin{center}
+	ОТЧЕТ О ЛАБОРАТОРНОЙ РАБОТЕ № 12\\
+	СОЗДАНИЕ ПРОГРАММЫ НА ЯЗЫКЕ JAVA\\
+	\vspace{1cm}
+	по курсу: ТЕХНОЛОГИИ ПРОГРАММИРОВАНИЯ\\
+  \end{center}
+	
+	\vspace{4cm}
+	\begin{center}
+\begin{tabular}{cccll}
+& \multicolumn{1}{l}{} & & &  \\
+\multicolumn{1}{l}{РАБОТУ ВЫПОЛНИЛ} & & & &  \\ \cline{1-4}
+\multicolumn{1}{|c|}{СТУДЕНТ ГР. №} & \multicolumn{1}{c|}{5511} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Вдовенко А.} & \\ \cline{1-4}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{подпись, дата} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}инициалы,\\ фамилия\end{tabular}} &  \\ \cline{1-4}
+\end{tabular}
+\end{center}
+	\vspace{1cm}
+  \begin{center}
+	Санкт-Петербург 2017
+  \end{center}
+\thispagestyle{empty}
+\newpage
+	\textbf{Задание:}
+	\\Написать текстовый многопользовательский чат.
+	\begin{enumerate}
+		\item Пользователь управляет клиентом. На сервере пользователя нет. Сервер занимается пересылкой сообщений между клиентами.
+		\item По умолчанию сообщение посылается всем участникам чата.
+		\item Есть команда послать сообщение конкретному пользователю (@senduser Vasya).
+		\item Есть команда @info которая присылает клиенту список всех пользователей, находящихся онлайн.
+	\end{enumerate}
+	Программа работает по протоколу TCP.\\
+
+	
+	\textbf{Дополнительное задание:}
+	\\Написать бота, который переодически посылает сообщения всем пользователям с текущем временем, а если написать боту, то отвечает эхом (копией исходящего сообщения), если в общем чате кто-то из клиентов написал <<Hello>>, то бот отвечает своей коронной фразой.\\
+	
+	
+	\textbf{Инструкция:}
+	\\Запуск программы происходит в следующем порядке:
+		\begin{itemize}
+			\item {Запуск сервера, выбор порта для сервера.}
+			\item {Запуск клиентов, ввод адреса сервера, ввод порта, ввод имени пользователя.}
+			\item {Ведение диалога. Использование команд выхода, отправление приватного сообщения, информации о присутствующих пользователях.}
+		\end{itemize}
+	
+	
+	\textbf{Тестирование:}
+	\begin{enumerate}
+		\item Используем команду @quit, программа клиента завершается
+		\item Используем команду @sendUser\\
+		С клиента Katya пошлём сообщение клиенту Vasya, для этого вводим: <<@senduser Vasya: Hello!>>.\\
+		В результате этой команды только у клиента с именем Vasya появится сообщение: <<[Private] Katya: Hello!>>.
+		\item Проверяем работу бота. Пишем в общий чат сообщение <<Hello!>>\\
+		Бот отвечает в общий чат фразой <<O-ho-ho, hello, my friends!>>\\
+		Вводим в консоль: @sendUser Bot: <<Привет, бот! Как дела?>>\\
+		В ответ приходит сообщение от бота: <<[Private] Bot: Привет, бот! Как дела?>>
+	\end{enumerate}
+\end{document}
